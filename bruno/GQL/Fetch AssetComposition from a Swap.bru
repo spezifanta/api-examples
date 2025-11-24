@@ -1,0 +1,54 @@
+meta {
+  name: Fetch AssetComposition from a Swap
+  type: graphql
+  seq: 5
+}
+
+post {
+  url: {{url}}/opus/api/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  {
+    totalReturnSwaps(
+      filter:{ 
+    	# expression: "asset.id = 73635"
+      # expression: "id = 188984"
+      expression: "asset.name contains 'Basket'"
+    
+    },
+    orderBy: {path: "createdAt", direction: ASC}) {
+      edges {
+        node {
+          uuid
+          id
+          name
+          updatedAt
+          manuallyUpdatedAt
+          asset {
+            id
+            name
+            uuid
+            ... on ASSETCOMPOSITION {
+              members {
+                asset {
+                  id
+                  name
+                  
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

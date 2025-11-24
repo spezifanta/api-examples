@@ -1,0 +1,84 @@
+meta {
+  name: Create Swap (TRS)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{url}}/opus/api/v3/masterdata/swaps
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "accountSegment": "768c21fb-c426-445d-b2d7-998aa2d9c613",
+    "asset": "c9751b66-2931-4d4a-9f27-ae2533589e70",
+    "assetClassLiteral": "TOTALRETURNSWAP",
+    "assetTreeTypes": {
+      "value": [
+        "swap",
+        "interest related product",
+        "index related product",
+        "stock related product",
+        "fund related product",
+        "total return swap",
+        "derivative related product",
+        "security related product"
+      ]
+    },
+    "businessHolidayFixingLeg1": "following",
+    "businessHolidayFixingLeg2": "following",
+    "counterpart": "1601652",
+    "currency": "USD",
+    "dayCountConvention": "30/360",
+    "designatedMaturity": "P1Y",
+    "directionLeg1": "PAYER",
+    "directionLeg2": "RECEIVER",
+    "dividendAmount": {
+      "quantity": 2,
+      "unit": "%",
+      "type": "PERCENT"
+    },
+    "entityStatus": "Open",
+    "initialPrice": {
+      "quantity": 100,
+      "unit": "USD/Pieces",
+      "type": "PRICE_PER_PIECE"
+    },
+    "maturity": "2020-11-01",
+    "name": "Demo Swap",
+    "nominal": {
+      "quantity": 100000,
+      "unit": "USD",
+      "type": "MONEY"
+    },
+    "paymentDatesLeg1": [
+      "2019-11-01",
+      "2020-11-01"
+    ],
+    "paymentDatesLeg2": [
+      "2019-11-01"
+    ],
+    "spread": {
+      "quantity": 1,
+      "unit": "%",
+      "type": "PERCENT"
+    },
+    "valuationDate": [
+      "2019-11-01"
+    ],
+  
+    "volume": {
+      "quantity": 1000,
+      "unit": "Pieces",
+      "type": "PIECE"
+    },
+    "type": "TOTAL_RETURN_SWAP"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

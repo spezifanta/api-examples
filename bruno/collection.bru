@@ -1,0 +1,26 @@
+headers {
+  Content-Type: application/json
+}
+
+auth {
+  mode: oauth2
+}
+
+auth:oauth2 {
+  grant_type: authorization_code
+  callback_url: {{accessTokenURL}}
+  authorization_url: {{authorizationURL}}
+  access_token_url: {{accessTokenURL}}
+  refresh_token_url: {{accessTokenURL}}
+  client_id: opus-api-auth-code
+  client_secret: openid
+  scope: 
+  state: 
+  pkce: false
+  credentials_placement: basic_auth_header
+  credentials_id: credentials
+  token_placement: header
+  token_header_prefix: Bearer
+  auto_fetch_token: true
+  auto_refresh_token: false
+}

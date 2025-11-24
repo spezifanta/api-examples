@@ -1,0 +1,35 @@
+meta {
+  name: Portfolio
+  type: graphql
+  seq: 1
+}
+
+post {
+  url: {{url}}/opus/api/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  {
+    portfolio(accountSegments: [75019], portfolioType: "Post Booking Portfolio") {
+      portfolioPositions {
+        slug
+        id
+        rateable {
+          name
+        }
+        volume {
+          quantity
+          unit
+        }
+      }
+    }
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

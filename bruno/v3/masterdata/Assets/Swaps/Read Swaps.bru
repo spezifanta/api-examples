@@ -1,0 +1,16 @@
+meta {
+  name: Read Swaps
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/opus/api/v3/masterdata/swaps/019ab5d8-c566-7000-8ffb-ac4fec6550bf
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

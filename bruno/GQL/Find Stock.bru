@@ -1,0 +1,41 @@
+meta {
+  name: Find Stock
+  type: graphql
+  seq: 7
+}
+
+post {
+  url: {{url}}/opus/api/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  {
+    assets(
+      # filter:{ 
+    	# expression: "asset.id = 73635"
+      # expression: "id = 188984"
+      #expression: "name contains 'DAX'"
+    
+    #},
+    orderBy: {path: "createdAt", direction: ASC}, range: {
+      offset: 0, size: 1000
+    }) {
+      edges {
+        node {
+          uuid
+          id
+          name
+          __typename
+        }
+      }
+    }
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

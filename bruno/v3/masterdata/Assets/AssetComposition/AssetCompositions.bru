@@ -1,0 +1,16 @@
+meta {
+  name: AssetCompositions
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/opus/api/v3/masterdata/asset-compositions
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

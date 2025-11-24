@@ -1,0 +1,46 @@
+meta {
+  name: Find AccountSegment
+  type: graphql
+  seq: 8
+}
+
+post {
+  url: {{url}}/opus/api/graphql
+  body: graphql
+  auth: inherit
+}
+
+body:graphql {
+  {
+    accountSegments(
+      # filter:{
+      # expression: "asset.id = 73635"
+      # expression: "id = 188984"
+      #expression: "name contains 'DAX'"
+  
+      #},
+      orderBy: { path: "createdAt", direction: ASC }
+      range: { offset: 0, size: 1000 }
+    ) {
+      edges {
+        node {
+          uuid
+          id
+          name
+          __typename
+          symbols {
+            symbolType {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+  
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

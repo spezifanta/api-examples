@@ -1,0 +1,33 @@
+meta {
+  name: Update AssetCompositions
+  type: http
+  seq: 4
+}
+
+patch {
+  url: {{url}}/opus/api/v3/masterdata/asset-compositions/3366725
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "Demo",
+    "members": [
+      {
+        "asset": "68727a18-640a-4d36-bbaf-81e451b41a3b",
+        "unit": "EUR/Pieces",
+        "weight": {
+          "quantity": 25,
+          "unit": "%",
+          "type": "PERCENT"
+        }
+      }
+      ]
+    }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
